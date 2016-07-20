@@ -6,6 +6,8 @@
 class LiquidCrystalComponent : public Adafruit_LiquidCrystal {
 public:
 	LiquidCrystalComponent();
+	
+	void testExtension123();
 };
 
 #endif
