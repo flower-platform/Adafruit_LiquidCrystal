@@ -96,11 +96,6 @@ Adafruit_LiquidCrystal::Adafruit_LiquidCrystal(uint8_t data, uint8_t clock, uint
   // we can't begin() yet :(
 }
 
-// TODO : this was added for FP-compatibility reasons; should be removed in the final solution
-Adafruit_LiquidCrystal::Adafruit_LiquidCrystal() {
-	// Init with dummy values; rely on user manually setting these values properly
-	init(1, 0, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-}
 
 void Adafruit_LiquidCrystal::init(uint8_t fourbitmode, uint8_t rs, uint8_t rw, uint8_t enable,
 			 uint8_t d0, uint8_t d1, uint8_t d2, uint8_t d3,

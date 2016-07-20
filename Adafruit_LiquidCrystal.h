@@ -60,9 +60,6 @@ public:
   Adafruit_LiquidCrystal(uint8_t i2cAddr);
   Adafruit_LiquidCrystal(uint8_t data, uint8_t clock, uint8_t latch);
 
-  // TODO : this was added for FP-compatibility reasons; should be removed in the final solution 
-  Adafruit_LiquidCrystal();
-
   void init(uint8_t fourbitmode, uint8_t rs, uint8_t rw, uint8_t enable,
 	    uint8_t d0, uint8_t d1, uint8_t d2, uint8_t d3,
 	    uint8_t d4, uint8_t d5, uint8_t d6, uint8_t d7);
@@ -96,10 +93,6 @@ public:
   virtual void write(uint8_t);
 #endif
   void command(uint8_t);
-  // TODO : this was added for FP-compatibility reasons; should be removed in the final solution
-  uint8_t _rs_pin; // LOW: command.  HIGH: character.
-  uint8_t _enable_pin; // activated by a HIGH pulse.
-  uint8_t _data_pins[8];
 private:
   void send(uint8_t value, boolean mode);
   void write4bits(uint8_t);
@@ -108,7 +101,10 @@ private:
   void _digitalWrite(uint8_t, uint8_t);
   void _pinMode(uint8_t, uint8_t);
 
+  uint8_t _rs_pin; // LOW: command.  HIGH: character.
   uint8_t _rw_pin; // LOW: write to LCD.  HIGH: read from LCD.
+  uint8_t _enable_pin; // activated by a HIGH pulse.
+  uint8_t _data_pins[8];
 
   uint8_t _displayfunction;
   uint8_t _displaycontrol;
