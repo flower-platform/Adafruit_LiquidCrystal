@@ -93,8 +93,6 @@ public:
   virtual void write(uint8_t);
 #endif
   void command(uint8_t);
-  
-  uint8_t _rs_pin; // LOW: command.  HIGH: character.
 private:
   void send(uint8_t value, boolean mode);
   void write4bits(uint8_t);
@@ -103,6 +101,7 @@ private:
   void _digitalWrite(uint8_t, uint8_t);
   void _pinMode(uint8_t, uint8_t);
 
+  uint8_t _rs_pin; // LOW: command.  HIGH: character.
   uint8_t _rw_pin; // LOW: write to LCD.  HIGH: read from LCD.
   uint8_t _enable_pin; // activated by a HIGH pulse.
   uint8_t _data_pins[8];
